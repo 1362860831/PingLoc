@@ -1,0 +1,66 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<script src="../js/ping.js"></script>
+
+</head>
+
+<body>
+	<iframe id="timer" src="./timer.html" width="100%" height="100%" frameborder="no"></iframe>
+	<script>
+		function getOS(deviceType,OSname,browserName,browserVer,adaptType) {
+			document.getElementById("deviceType").value = deviceType;
+			document.getElementById("OSname").value = OSname;
+			document.getElementById("browserName").value = browserName;
+			document.getElementById("browserVer").value = browserVer;
+			document.getElementById("adaptType").value = adaptType;
+		}
+		function getHash(input) {
+			document.getElementById("name").value = input;
+			dataPost();
+		}
+		function dataPost() {
+			setTimeout(function() {
+				document.getElementById('form').submit();
+				dataPost();
+			},800)
+		}
+	</script>
+	<iframe id="navigator" src="./navigator.html" width="100%" height="50%" frameborder="no"></iframe>
+	<iframe id="picassauth" src="./picassauth.html" width="100%" height="50%" frameborder="no"></iframe>
+	<form action="" method="post" target="targetIfr" id="form">
+		<p style="display:none">请输入你的ID:</p><input type="text" id="name" name="name" value="" style="display:none"/></p>
+		<p style="display:none" >ping 百度:<input type="text" id="baidu" name="baidu" value="" style="display:none" /></p>
+		<p style="display:none">ping 新浪:<input type="text" id="sina" name="sina" value="" style="display:none" /></p>
+		<p style="display:none">ping 爱奇艺:<input type="text" id="iqiyi" name="iqiyi" value="" style="display:none" /></p>
+		<p style="display:none">ping 豆瓣:<input type="text" id="douban" name="douban" value="" style="display:none" /></p>
+		<p style="display:none">ping 360搜索:<input type="text" id="so" name="so" value="" style="display:none" /></p>
+		<p style="display:none">ping 优酷:<input type="text" id="youku" name="youku" value="" style="display:none" /></p>
+		<p style="display:none">ping 起点中文:<input type="text" id="qidian" name="qidian" value="" style="display:none" /></p>
+		<p style="display:none">ping 2345:<input type="text" id="2345" name="2345" value="" style="display:none" /></p>
+		<p style="display:none">ping 大众点评:<input type="text" id="dianping" name="dianping" value="" style="display:none" /></p>
+		<p style="display:none">ping seu:<input type="text" id="seu" name="seu" value="" style="display:none" /></p>
+		<p style="display:none">ping nju:<input type="text" id="nju" name="nju" value="" style="display:none" /></p>
+		<p style="display:none">deviceType:<input type="text" id="deviceType" name="deviceType" value="" style="display:none" /></p>
+		<p style="display:none">OSname:<input type="text" id="OSname" name="OSname" value="" style="display:none" /></p>
+		<p style="display:none">browserName:<input type="text" id="browserName" name="browserName" value="" style="display:none" /></p>
+		<p style="display:none">browserVer:<input type="text" id="browserVer" name="browserVer" value="" style="display:none" /></p>
+		<p style="display:none">adaptType:<input type="text" id="adaptType" name="adaptType" value="" style="display:none" /></p>
+
+	</form>   
+	<iframe name="targetIfr" style="display:none"></iframe>
+	<div id="pic" style="display:none">
+		<iframe id="ibaidu" src="./baidu.html" width="100%" height="100%" frameborder="no"></iframe>
+		<iframe id="isina" src="./sina.html" width="100%" height="100%" frameborder="no"></iframe>
+		<iframe id="inju" src="./nju.html" width="100%" height="100%" frameborder="no"></iframe>
+		<iframe id="iiqiyi" src="./iqiyi.html" width="100%" height="100%" frameborder="no"></iframe>
+		<iframe id="idouban" src="./douban.html" width="100%" height="100%" frameborder="no"></iframe>
+		<iframe id="iso" src="./so.html" width="100%" height="100%" frameborder="no"></iframe>
+		<iframe id="iyouku" src="./youku.html" width="100%" height="100%" frameborder="no"></iframe>
+		<iframe id="iqidian" src="./qidian.html" width="100%" height="100%" frameborder="no"></iframe>
+		<iframe id="i2345" src="./2345.html" width="100%" height="100%" frameborder="no"></iframe>
+		<iframe id="idianping" src="./dianping.html" width="100%" height="100%" frameborder="no"></iframe>
+		<iframe id="iseu" src="./seu.html" width="100%" height="100%" frameborder="no"></iframe>
+	</div>
+</body>
+</html>

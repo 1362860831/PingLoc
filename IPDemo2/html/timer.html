@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>秒表</title>
+        <meta charset="utf-8">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #container{
+                width:500px;
+                height: 70px;
+                background: #ccc;
+                text-align: center;
+                margin: 100px auto;
+                padding-top: 20px;
+				font-size: 40px;
+            }
+            #container button{
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <center><font size="20" color="red">非常感谢您访问本网站并参与测试</font></center>
+		<center><font size="20" color="red">请不要尝试渗透或攻击网站</font></center>
+		<center><font size="20" color="red">该网页仅采集一些数据用于研究</font></center>
+		<center><font size="20" color="red">希望您的访问能尽量呆在该页面上一分钟</font></center>
+		<center><font size="20" color="red">期间请不要离开本页面访问别的网页</font></center>
+        <div id="container">
+            <p id="time">00:00</p>
+            <button id="start" style="display:none">开始</button>
+        </div>
+		<center><font size="20" color="red"><div id="text"></div></font></center>
+        <script>
+            
+            //我需要两个变量来分别存储秒数和分钟数
+            var second = 0;
+            var minute = 0;
+            //然后需要一个变量来存储我的定时器
+            var int;
+
+            function timer(){  //声明一个timer函数，在这个函数里实现我的功能。
+                second += 1;  //秒数加1
+                if(second > 59){
+                    second = 0;  //当秒数大于59的时候，让秒数重新归零。
+                    minute += 1;  //分钟数加1
+                    document.getElementById('text').innerHTML = "非常感谢您的参与，现在可以关闭本页面！";
+                }
+                //然后将秒和分钟追加到dom里，为了保持00:00这样的格式，我们需要做一些简单的判断
+                if(minute < 10){
+                    document.getElementById('time').innerHTML = '0' + minute + ":0" + second;
+                    if(second < 10){
+                        document.getElementById('time').innerHTML = '0' + minute + ":0" + second;
+                    }else{
+                        document.getElementById('time').innerHTML = '0' + minute + ":" + second;
+                    }
+                }else{
+                    document.getElementById('time').innerHTML = minute + ":0" + second;
+                    if(second < 10){
+                        document.getElementById('time').innerHTML = minute + ":0" + second;
+                    }else{
+                        document.getElementById('time').innerHTML = minute + ":" + second;
+                    }
+                }
+            }
+
+            //然后我创建一个定时器来执行timer函数，在js中，1000毫秒等于1秒。我可以让这个定时器每隔1000毫秒执行一次timer函数。我想要的效果是点击开始按钮的时候再执行这个定时器。
+            //我可以把这个定时器放在一个函数里，在我点击开始按钮的时候运行这个函数即可。
+            function start(){
+                //在每次点击开始按钮时，我们需要先清除一下定时器，然后再执行定时器，原因是如果不清除，每次点击开始按钮，定时器都会累加，会导致计时越来越快的bug
+                clearInterval(int);
+                int = setInterval(timer,1000);
+            }
+
+            var startBtn = document.getElementById('start');
+            startBtn.onclick = function(){
+                start();
+            }
+			start();
+
+        </script>
+    </body>
+</html>

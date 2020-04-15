@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>baidu</title>
+		<script>
+			function generatePing() {
+
+				parent.window.ping('www.2345.com',"2345")
+
+				//提交结果给后台
+				setTimeout(function() {
+//					if (parent.window.document.getElementById("pic").style.display=="none")
+//						parent.window.document.getElementById("pic").style.display="block"
+//					if (parent.window.document.getElementById("baidu").value!="")
+//						parent.window.document.getElementById('form').submit();
+					generatePing();
+				},800)
+			}
+			generatePing();
+		</script>
+	</head>
+	<body>
+	
+	</body>
+
+</html>
